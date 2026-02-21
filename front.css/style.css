@@ -1,0 +1,248 @@
+/* 1. Cài đặt chung */
+* { box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', Roboto, sans-serif;
+  margin: 0;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+/* 2. Header */
+header {
+  background: #b71c1c; /* Đỏ đậm */
+  color: white;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  flex-wrap: wrap;
+}
+
+.logo h1 { margin: 0; font-size: 1.5rem; font-weight: 900; letter-spacing: 1px; }
+
+.search-bar {
+  flex: 1;
+  margin: 0 2rem;
+  display: flex;
+  max-width: 500px;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 3px 0 0 3px;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 0 1rem;
+  background: #212121;
+  border: none;
+  color: white;
+  border-radius: 0 3px 3px 0;
+  cursor: pointer;
+}
+
+.user-actions button {
+  background: transparent;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.badge {
+  background: #ffeb3b;
+  color: #b71c1c;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.8rem;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  font-weight: bold;
+}
+
+/* 3. Banner */
+.hero-banner {
+  background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+}
+
+.hero-banner h2 { font-size: 2.5rem; margin: 0; text-transform: uppercase; }
+
+/* 4. Main Layout & Admin */
+main { max-width: 1200px; margin: 2rem auto; padding: 0 1rem; }
+
+.admin-panel {
+  background: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border: 1px dashed #ccc;
+}
+.add-product-form { display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap; }
+.add-product-form input { padding: 0.5rem; flex: 1; border: 1px solid #ddd; }
+
+/* 5. Lưới sản phẩm (Style Shopee cũ + Nâng cấp) */
+.section-title h3 {
+  border-left: 5px solid #b71c1c;
+  padding-left: 10px;
+  color: #b71c1c;
+  text-transform: uppercase;
+}
+/* --- ĐOẠN CODE MỚI ĐỂ TÁCH SẢN PHẨM --- */
+
+    /* 1. Cái khung bao bên ngoài */
+    #product-list {
+      display: grid;
+      /* Tự chia cột, mỗi cột nhỏ nhất 230px */
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      
+      /* QUAN TRỌNG: Khoảng cách giữa các sản phẩm (tách ra 30px) */
+      gap: 30px; 
+      
+      padding: 10px; /* Khoảng đệm xung quanh */
+    }
+
+    /* 2. Từng thẻ sản phẩm riêng biệt */
+    .product-card {
+      background-color: white; /* Nền trắng để nổi bật trên nền xám */
+      border: 1px solid #e0e0e0; /* Viền xám mỏng */
+      border-radius: 10px; /* Bo tròn 4 góc nhìn cho mượt */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08); /* Đổ bóng nhẹ giúp thẻ "nổi" lên */
+      overflow: hidden; /* Để ảnh không bị tràn ra ngoài góc bo */
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease; /* Hiệu ứng mượt khi di chuột */
+    }
+
+    /* Hiệu ứng khi di chuột vào thẻ: Nổi cao hơn chút nữa */
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      border-color: #b71c1c; /* Viền đổi màu đỏ */
+    }
+
+    /* Chỉnh lại ảnh cho khớp với thẻ mới */
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-bottom: 1px solid #eee;
+    }
+
+    /* Phần chữ bên dưới */
+    .product-info {
+      padding: 15px;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between; /* Đẩy nút mua xuống đáy */
+    }
+  grid-template
+.product {
+  background: white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.product:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  border: 1px solid #b71c1c;
+}
+
+.product img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  background: #eee;
+}
+
+.product-info { padding: 10px; display: flex; flex-direction: column; flex: 1; }
+
+.product h3 {
+  font-size: 0.95rem;
+  margin: 0 0 5px;
+  line-height: 1.4;
+  height: 2.8em; /* Giới hạn 2 dòng */
+  overflow: hidden;
+}
+
+.product .price {
+  color: #b71c1c;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.btn-add-cart {
+  margin-top: auto;
+  width: 100%;
+  padding: 8px;
+  background: #b71c1c;
+  color: white;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.btn-add-cart:hover { background: #8e1616; }
+
+/* 6. Modal (Cửa sổ bật lên) */
+.modal {
+  display: none; /* Mặc định ẩn */
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 5% auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  border-radius: 8px;
+  position: relative;
+}
+.small-modal { max-width: 400px; text-align: center; }
+
+.close { position: absolute; right: 15px; top: 10px; font-size: 28px; cursor: pointer; }
+
+/* Cart & Auth Styles trong Modal */
+#cart-list li {
+  display: flex; justify-content: space-between;
+  padding: 10px 0; border-bottom: 1px solid #eee;
+}
+.auth-buttons { margin-top: 1rem; display: flex; gap: 10px; justify-content: center; }
+.btn-primary { background: #b71c1c; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+.btn-secondary { background: #eee; color: #333; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+input[type="email"], input[type="password"] { width: 100%; padding: 10px; margin: 5px 0; border: 1px solid #ccc; border-radius: 4px;}
+
+/* Footer */
+footer { background: #212121; color: #999; text-align: center; padding: 2rem; margin-top: 3rem; }
